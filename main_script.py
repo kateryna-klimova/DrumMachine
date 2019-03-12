@@ -66,7 +66,7 @@ def callback1(channel):
     #     os.system('aplay -D bluealsa ~/Desktop/project/piano/a1.wav')
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'drums':
-	# os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
+    # os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
     b1 = 1
 
@@ -127,11 +127,11 @@ def main():
                         print "Playing b3 in mode %s" % drum_pad_mode
                         b3 = 0
             elif (drum_pad_mode == 'drums'):
-        	    if (b1 == 1):
+                if (b1 == 1):
                         print "Playing b1 in mode %s" % drum_pad_mode
                         b1 = 0
                 if (b2 == 1):
-                    print "Playing b2 in mode %s" % drum_pad_mode
+                        print "Playing b2 in mode %s" % drum_pad_mode
                         b2 = 0
                 if (b3 == 1):
                         print "Playing b3 in mode %s" % drum_pad_mode
