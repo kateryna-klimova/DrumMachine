@@ -71,7 +71,7 @@ def callback3(channel):
 
 
 
-# Function defenitions end
+# Function defenitions end hello
 
 def main():
         client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
