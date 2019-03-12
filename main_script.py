@@ -93,6 +93,16 @@ def callback3(channel):
 # Function defenitions end hello
 
 def main():
+    global b1
+    global b2
+    global b3
+    global b4
+    global b5
+    global b6
+    global b7
+    global b8
+    global b9
+    global record_tag
         client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
         client.on_connect    = connected
         client.on_message    = message
