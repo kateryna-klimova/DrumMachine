@@ -103,46 +103,46 @@ def main():
     global b8
     global b9
     global record_tag
-        client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
-        client.on_connect    = connected
-        client.on_message    = message
-        client.connect()
-        GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
-        GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
-        GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
-        while True:
-                if drum_pad_mode == 'default':
-                    if b1 == 1:
-                        print "Playing b1 in mode %s" % drum_pad_mode
-                        b1 = 0
-                    if b2 == 1:
-                        print "Playing b2 in mode %s" % drum_pad_mode
-                        b2 = 0
-                    if b3 == 1:
-                        print "Playing b3 in mode %s" % drum_pad_mode
-                        b3 = 0
-                elif drum_pad_mode == 'piano':
-                    if b1 == 1:
-                        print "Playing b1 in mode %s" % drum_pad_mode
-                        b1 = 0
-                    if b2 == 1:
-                        print "Playing b2 in mode %s" % drum_pad_mode
-                        b2 = 0
-                    if b3 == 1:
-                        print "Playing b3 in mode %s" % drum_pad_mode
-                        b3 = 0
-                elif drum_pad_mode == 'drums':
-            	    if b1 == 1:
-                        print "Playing b1 in mode %s" % drum_pad_mode
-                        b1 = 0
-                    if b2 == 1:
-                        print "Playing b2 in mode %s" % drum_pad_mode
-                        b2 = 0
-                    if b3 == 1:
-                        print "Playing b3 in mode %s" % drum_pad_mode
-                        b3 = 0
-        client.loop_blocking()
-        GPIO.cleanup()
+    client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
+    client.on_connect    = connected
+    client.on_message    = message
+    client.connect()
+    GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
+    GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
+    GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
+    while True:
+            if drum_pad_mode == 'default':
+                if b1 == 1:
+                    print "Playing b1 in mode %s" % drum_pad_mode
+                    b1 = 0
+                if b2 == 1:
+                    print "Playing b2 in mode %s" % drum_pad_mode
+                    b2 = 0
+                if b3 == 1:
+                    print "Playing b3 in mode %s" % drum_pad_mode
+                    b3 = 0
+            elif drum_pad_mode == 'piano':
+                if b1 == 1:
+                    print "Playing b1 in mode %s" % drum_pad_mode
+                    b1 = 0
+                if b2 == 1:
+                    print "Playing b2 in mode %s" % drum_pad_mode
+                    b2 = 0
+                if b3 == 1:
+                    print "Playing b3 in mode %s" % drum_pad_mode
+                    b3 = 0
+            elif drum_pad_mode == 'drums':
+        	    if b1 == 1:
+                    print "Playing b1 in mode %s" % drum_pad_mode
+                    b1 = 0
+                if b2 == 1:
+                    print "Playing b2 in mode %s" % drum_pad_mode
+                    b2 = 0
+                if b3 == 1:
+                    print "Playing b3 in mode %s" % drum_pad_mode
+                    b3 = 0
+    client.loop_blocking()
+    GPIO.cleanup()
 
 if __name__ == "__main__":
         main()
