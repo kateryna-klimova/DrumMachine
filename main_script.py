@@ -10,6 +10,7 @@ import os.path
 import RPi.GPIO as GPIO
 import os
 import os.path
+from multiprocessing import Process
 
 # Setting global variables
 GPIO.setmode(GPIO.BCM)
@@ -97,6 +98,9 @@ def callback3(channel):
     print("activated")
     b3 = 1
 
+def func():
+    client.loop_blocking()
+
 
 # Function defenitions end hello
 
@@ -118,7 +122,6 @@ def main():
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
-    client.loop_blocking()
     while True:
             if (drum_pad_mode == 'piano'):
                 if (b1 == 1):
@@ -154,4 +157,6 @@ def main():
 
 
 if __name__ == "__main__":
-        main()
+        # main()
+    Process(target=main).start()
+    Process(target=func).start()
