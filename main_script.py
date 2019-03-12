@@ -131,7 +131,7 @@ def main():
                         print "Playing b1 in mode %s" % drum_pad_mode
                         b1 = 0
                 if (b2 == 1):
-                        print "Playing b2 in mode %s" % drum_pad_mode
+                    print "Playing b2 in mode %s" % drum_pad_mode
                         b2 = 0
                 if (b3 == 1):
                         print "Playing b3 in mode %s" % drum_pad_mode
