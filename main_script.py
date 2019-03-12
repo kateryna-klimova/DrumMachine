@@ -61,6 +61,7 @@ def message(client, feed_id, payload):  # proces the commands from Google Home
 
 
 def callback1(channel):
+    global b1
     # if drum_pad_mode == 'default':
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
@@ -74,6 +75,7 @@ def callback1(channel):
 
 
 def callback2(channel):
+    global b2
     # if drum_pad_mode == 'default':
     #     print "Playing from port 23 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
@@ -87,6 +89,7 @@ def callback2(channel):
 
 
 def callback3(channel):
+    global b3
     # if drum_pad_mode == 'default':
     #     print "Playing from port 18 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
