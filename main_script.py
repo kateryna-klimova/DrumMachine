@@ -161,6 +161,6 @@ def main():
 
 
 if __name__ == "__main__":
-        # main()
-    Process(target=main).start()
-    Process(target=func).start()
+         main()
+    # Process(target=main).start()
+    # Process(target=func).start()
