@@ -45,7 +45,7 @@ def callback1(channel):
         os.system('aplay -D bluealsa ~/Desktop/project/piano/a1.wav')
         print "Playing from port 24 in mode %s" % drum_pad_mode
     elif drum_pad_mode == 'drums':
-	os.system('aplay -D bluealsa ~/Desktop/project/drums/clap-fat.wav')
+	os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
         print "Playing from port 24 in mode %s" % drum_pad_mode
 
 
@@ -56,7 +56,7 @@ def callback2(channel):
         os.system('aplay -D bluealsa ~/Desktop/project/piano/b1.wav')
         print "Playing from port 23 in mode %s" % drum_pad_mode
     elif drum_pad_mode == 'drums':
-        os.system('aplay -D bluealsa ~/Desktop/project/drums/kick-gritty.wav')
+        os.system('aplay -D bluealsa ~/Desktop/project/drums/snare.wav')
         print "Playing from port 23 in mode %s" % drum_pad_mode
 
 def callback3(channel):
@@ -66,7 +66,7 @@ def callback3(channel):
         os.system('aplay -D bluealsa ~/Desktop/project/piano/c1.wav')
         print "Playing from port 18 in mode %s" % drum_pad_mode
     elif drum_pad_mode == 'drums':
-        os.system('aplay -D bluealsa ~/Desktop/project/drums/kick-acoustic02.wav')
+        os.system('aplay -D bluealsa ~/Desktop/project/drums/hat.wav')
         print "Playing from port 18 in mode %s" % drum_pad_mode
 
 
