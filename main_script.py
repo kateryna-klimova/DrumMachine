@@ -131,8 +131,6 @@ def main():
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
     while True:
-        sleep(1)
-        print('inner loop running')
         print(b1)
         print(b2)
         print(b3)
