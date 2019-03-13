@@ -120,11 +120,11 @@ def main():
     global b9
     global record_tag
     global drum_pad_mode
-    client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
-    client.on_connect = connected
-    client.on_message = message
-    client.connect()
-    client.loop_blocking()
+    # client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
+    # client.on_connect = connected
+    # client.on_message = message
+    # client.connect()
+    # client.loop_blocking()
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
@@ -163,6 +163,6 @@ def main():
 
 
 if __name__ == "__main__":
-         main()
-    # Process(target=main).start()
-    # Process(target=func).start()
+         # main()
+    Process(target=main).start()
+    Process(target=func).start()
