@@ -127,6 +127,7 @@ def main():
     while True:
         # print(drum_pad_mode)
         # sleep(0.5)
+        global drum_pad_mode
         if drum_pad_mode == "piano":
             if (b1 == 1):
                 print "Playing b1 in mode %s" % drum_pad_mode
