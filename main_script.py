@@ -31,7 +31,7 @@ record_tag = 0
 ADAFRUIT_IO_USERNAME = "katerynaklimova"
 ADAFRUIT_IO_KEY = "e2eee5f63ba54e26b3fb8bb70dd4bd09"
 
-# Here comes your function definitions
+# Function definitions
 
 # Subscribes to the Adafruit stream
 
@@ -120,6 +120,7 @@ def main():
     global b9
     global record_tag
     global drum_pad_mode
+    drum_pad_mode = 'default'
     # client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
     # client.on_connect = connected
     # client.on_message = message
@@ -129,7 +130,6 @@ def main():
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
     while True:
-        global drum_pad_mode
         if (drum_pad_mode == 'piano'):
             if (b1 == 1):
                 print "Playing b1 in mode %s" % drum_pad_mode
