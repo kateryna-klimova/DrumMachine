@@ -34,14 +34,10 @@ ADAFRUIT_IO_KEY = "e2eee5f63ba54e26b3fb8bb70dd4bd09"
 # Function definitions
 
 # Subscribes to the Adafruit stream
-
-
 def connected(client):
     client.subscribe('google_commands')
 
 # this gets called every time a message is received
-
-
 def message(client, feed_id, payload):  # proces the commands from Google Home
      global drum_pad_mode
      if payload == "mode piano":
@@ -99,7 +95,6 @@ def callback3(channel):
     b3 = 1
 
 def func():
-    global drum_pad_mode
     client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
     client.on_connect = connected
     client.on_message = message
@@ -125,9 +120,7 @@ def main():
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
     while True:
-        # print(drum_pad_mode)
         # sleep(0.5)
-        global drum_pad_mode
         if drum_pad_mode == "piano":
             if (b1 == 1):
                 print "Playing b1 in mode %s" % drum_pad_mode
