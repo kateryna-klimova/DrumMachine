@@ -126,11 +126,12 @@ def main():
     # client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
     # client.on_connect = connected
     # client.on_message = message
-    # client.connect() 
+    # client.connect()
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
     while True:
+        wait(1)
         print('inner loop running')
         print(b1)
         print(b2)
