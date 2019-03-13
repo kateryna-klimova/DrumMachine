@@ -129,6 +129,7 @@ def main():
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
     while True:
+        global drum_pad_mode
         if (drum_pad_mode == 'piano'):
             if (b1 == 1):
                 print "Playing b1 in mode %s" % drum_pad_mode
