@@ -70,7 +70,6 @@ def callback1(channel):
     # elif drum_pad_mode == 'drums':
     # os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
-    print("activated")
     b1 = 1
 
 
@@ -84,7 +83,6 @@ def callback2(channel):
     # elif drum_pad_mode == 'drums':
     #     os.system('aplay -D bluealsa ~/Desktop/project/drums/snare.wav')
     #     print "Playing from port 23 in mode %s" % drum_pad_mode
-    print("activated")
     b2 = 1
 
 
@@ -98,7 +96,6 @@ def callback3(channel):
     # elif drum_pad_mode == 'drums':
     #     os.system('aplay -D bluealsa ~/Desktop/project/drums/hat.wav')
     #     print "Playing from port 18 in mode %s" % drum_pad_mode
-    print("activated")
     b3 = 1
 
 def func():
@@ -109,7 +106,7 @@ def func():
     client.loop_blocking()
 
 
-# Function defenitions end hello
+# Function defenitions end
 
 def main():
     global b1
@@ -127,6 +124,7 @@ def main():
     client.on_connect = connected
     client.on_message = message
     client.connect()
+    client.loop_blocking()
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
