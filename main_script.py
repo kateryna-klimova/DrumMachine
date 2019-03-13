@@ -122,6 +122,7 @@ def main():
     global b8
     global b9
     global record_tag
+    global drum_pad_mode
     # client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
     # client.on_connect = connected
     # client.on_message = message
