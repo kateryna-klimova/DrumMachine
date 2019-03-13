@@ -131,7 +131,7 @@ def main():
     while True:
         # print(drum_pad_mode)
         # sleep(0.5)
-        if drum_pad_mode == 'piano':
+        if drum_pad_mode == "piano":
             if (b1 == 1):
                 print "Playing b1 in mode %s" % drum_pad_mode
                 b1 = 0
@@ -141,7 +141,7 @@ def main():
             if (b3 == 1):
                 print "Playing b3 in mode %s" % drum_pad_mode
                 b3 = 0
-        elif drum_pad_mode == 'drums':
+        elif drum_pad_mode == "drums":
             if (b1 == 1):
                 print "Playing b1 in mode %s" % drum_pad_mode
                 b1 = 0
@@ -151,7 +151,7 @@ def main():
             if (b3 == 1):
                 print "Playing b3 in mode %s" % drum_pad_mode
                 b3 = 0
-        elif drum_pad_mode == 'default':
+        elif drum_pad_mode == "default":
             if (b1 == 1):
                 print "Playing b1 in mode %s" % drum_pad_mode
                 b1 = 0
