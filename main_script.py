@@ -17,7 +17,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-drum_pad_mode = 'default'
+global drum_pad_mode = 'default'
 b1 = 0
 b2 = 0
 b3 = 0
@@ -162,7 +162,6 @@ def main():
                 print "Playing b3 in mode %s" % drum_pad_mode
                 b3 = 0
     GPIO.cleanup()
-    print(drum_pad_mode)
 
 
 if __name__ == "__main__":
