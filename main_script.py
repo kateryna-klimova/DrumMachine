@@ -115,7 +115,7 @@ def func2(drum_pad_mode):
     global b8
     global b9
     # global record_tag
-    global drum_pad_mode
+    # global drum_pad_mode
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
