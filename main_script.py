@@ -10,7 +10,7 @@ import os.path
 import RPi.GPIO as GPIO
 import os
 import os.path
-from multiprocessing import Process, Value, Lock
+import multiprocessing
 
 # Setting global variables
 GPIO.setmode(GPIO.BCM)
@@ -92,17 +92,7 @@ def func(cmd, buttons):
 # Function defenitions end
 
 def func2(cmd, buttons):
-    # global b1
-    # global b2
-    # global b3
-    # global b4
-    # global b5
-    # global b6
-    # global b7
-    # global b8
-    # global b9
-    # global record_tag
-    # global drum_pad_mode
+    # global cmd
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
