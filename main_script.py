@@ -41,10 +41,10 @@ def connected(client):
 def message(client, feed_id, payload):  # proces the commands from Google Home
      if payload == "mode piano":
         drum_pad_mode = 1
-        print("Mode set to " + drum_pad_mode)
+        print("Mode set to 1")
      elif payload == "mode drums":
         drum_pad_mode = 2
-        print("Mode set to " + drum_pad_mode)
+        print("Mode set to 2")
      elif payload == "record":
         record_tag = 1
         print("Recording started")
