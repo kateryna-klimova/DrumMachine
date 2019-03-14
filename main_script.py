@@ -17,17 +17,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-drum_pad_mode = 0
-b1 = 0
-b2 = 0
-b3 = 0
-b4 = 0
-b5 = 0
-b6 = 0
-b7 = 0
-b8 = 0
-b9 = 0
-record_tag = 0
+# cmd = 0
 ADAFRUIT_IO_USERNAME = "katerynaklimova"
 ADAFRUIT_IO_KEY = "e2eee5f63ba54e26b3fb8bb70dd4bd09"
 
@@ -39,25 +29,24 @@ def connected(client):
 
 # this gets called every time a message is received hehbkh
 def message(client, feed_id, payload):  # proces the commands from Google Home
-     global drum_pad_mode
+     global cmd
      if payload == "mode piano":
-        drum_pad_mode = 1
+        cmd = 1
         print("Mode set to piano")
      elif payload == "mode drums":
-        drum_pad_mode = 2
+        cmd = 2
         print("Mode set to drums")
      elif payload == "record":
-        record_tag = 1
+        cmd = 4
         print("Recording started")
      elif payload == "stop recording":
-        record_tag = 0
+        cmd = 5
         print("Recording stopped")
      else:
         print "Message from Google Home: %s" % payload
 
 
 def callback1(channel):
-    global b1
     # if drum_pad_mode == 'default':
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
@@ -66,11 +55,10 @@ def callback1(channel):
     # elif drum_pad_mode == 'drums':
     # os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
-    b1 = 1
+    buttons[0] = 1
 
 
 def callback2(channel):
-    global b2
     # if drum_pad_mode == 'default':
     #     print "Playing from port 23 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
@@ -79,11 +67,10 @@ def callback2(channel):
     # elif drum_pad_mode == 'drums':
     #     os.system('aplay -D bluealsa ~/Desktop/project/drums/snare.wav')
     #     print "Playing from port 23 in mode %s" % drum_pad_mode
-    b2 = 1
+    buttons[1] = 1
 
 
 def callback3(channel):
-    global b3
     # if drum_pad_mode == 'default':
     #     print "Playing from port 18 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
@@ -92,9 +79,9 @@ def callback3(channel):
     # elif drum_pad_mode == 'drums':
     #     os.system('aplay -D bluealsa ~/Desktop/project/drums/hat.wav')
     #     print "Playing from port 18 in mode %s" % drum_pad_mode
-    b3 = 1
+    buttons[2] = 1
 
-def func(drum_pad_mode):
+def func(cmd, buttons):
     client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
     client.on_connect = connected
     client.on_message = message
@@ -104,16 +91,16 @@ def func(drum_pad_mode):
 
 # Function defenitions end
 
-def func2(drum_pad_mode):
-    global b1
-    global b2
-    global b3
-    global b4
-    global b5
-    global b6
-    global b7
-    global b8
-    global b9
+def func2(cmd, buttons):
+    # global b1
+    # global b2
+    # global b3
+    # global b4
+    # global b5
+    # global b6
+    # global b7
+    # global b8
+    # global b9
     # global record_tag
     # global drum_pad_mode
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
@@ -122,34 +109,34 @@ def func2(drum_pad_mode):
     while True:
         # sleep(0.5)
         # print("while")
-        if drum_pad_mode == 1:
-            if (b1 == 1):
+        if cmd == 1:
+            if (buttons[0] == 1):
                 print "Playing b1 in mode piano"
                 b1 = 0
-            if (b2 == 1):
+            if (buttons[1] == 1):
                 print "Playing b2 in mode piano"
                 b2 = 0
-            if (b3 == 1):
+            if (buttons[2] == 1):
                 print "Playing b3 in mode piano"
                 b3 = 0
-        elif drum_pad_mode == 2:
-            if (b1 == 1):
+        elif cmd == 2:
+            if (buttons[0] == 1):
                 print "Playing b1 in mode drums"
                 b1 = 0
-            if (b2 == 1):
+            if (buttons[1] == 1):
                 print "Playing b2 in mode drums"
                 b2 = 0
-            if (b3 == 1):
+            if (buttons[2] == 1):
                 print "Playing b3 in mode drums"
                 b3 = 0
-        elif drum_pad_mode == 0:
-            if (b1 == 1):
+        elif cmd == 0:
+            if (buttons[0] == 1):
                 print "Playing b1 in mode default"
                 b1 = 0
-            if (b2 == 1):
+            if (buttons[1] == 1):
                 print "Playing b2 in mode default"
                 b2 = 0
-            if (b3 == 1):
+            if (buttons[2] == 1):
                 print "Playing b3 in mode default"
                 b3 = 0
     GPIO.cleanup()
@@ -157,10 +144,11 @@ def func2(drum_pad_mode):
 
 if __name__ == "__main__":
          # main()
-    drum_pad_mode = Value('i', 0)
-    a = Process(target=func2, args=(drum_pad_mode,))
-    b = Process(target=func, args=(drum_pad_mode,))
+    cmd = multiprocessing.Value('i', 0)
+    buttons = multiprocessing.Array('i', 9)
+    a = multiprocessing.Process(target=func2, args=(cmd, buttons))
+    b = multiprocessing.Process(target=func, args=(cmd, buttons))
     a.start()
     b.start()
-    a.join()
-    b.join()
+    # a.join()
+    # b.join()
