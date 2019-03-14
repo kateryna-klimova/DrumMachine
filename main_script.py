@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """Main Script: Google Home and ISRs"""
-
+# Working script
 # Imports
 from Adafruit_IO import MQTTClient
 from time import sleep
@@ -17,7 +17,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-# cmd = 0
 ADAFRUIT_IO_USERNAME = "katerynaklimova"
 ADAFRUIT_IO_KEY = "e2eee5f63ba54e26b3fb8bb70dd4bd09"
 
@@ -29,7 +28,6 @@ def connected(client):
 
 # this gets called every time a message is received hehbkh
 def message(client, feed_id, payload):  # proces the commands from Google Home
-     # global cmd
      if payload == "mode piano":
         cmd.value = 1
         print("Mode set to piano")
@@ -47,38 +45,14 @@ def message(client, feed_id, payload):  # proces the commands from Google Home
 
 
 def callback1(channel):
-    # if drum_pad_mode == 'default':
-    #     print "Playing from port 24 in mode %s" % drum_pad_mode
-    # elif drum_pad_mode == 'piano':
-    #
-    #     print "Playing from port 24 in mode %s" % drum_pad_mode
-    # elif drum_pad_mode == 'drums':
-
-    #     print "Playing from port 24 in mode %s" % drum_pad_mode
     buttons[0] = 1
 
 
 def callback2(channel):
-    # if drum_pad_mode == 'default':
-    #     print "Playing from port 23 in mode %s" % drum_pad_mode
-    # elif drum_pad_mode == 'piano':
-    #
-    #     print "Playing from port 23 in mode %s" % drum_pad_mode
-    # elif drum_pad_mode == 'drums':
-
-    #     print "Playing from port 23 in mode %s" % drum_pad_mode
     buttons[1] = 1
 
 
 def callback3(channel):
-    # if drum_pad_mode == 'default':
-    #     print "Playing from port 18 in mode %s" % drum_pad_mode
-    # elif drum_pad_mode == 'piano':
-    #
-    #     print "Playing from port 18 in mode %s" % drum_pad_mode
-    # elif drum_pad_mode == 'drums':
-    #
-    #     print "Playing from port 18 in mode %s" % drum_pad_mode
     buttons[2] = 1
 
 def func(cmd, buttons):
@@ -92,13 +66,10 @@ def func(cmd, buttons):
 # Function defenitions end
 
 def func2(cmd, buttons):
-    # global cmd
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
     while True:
-        # sleep(0.5)
-        # print("while")
         if cmd.value == 1:
             if (buttons[0] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/piano/a1.wav')
@@ -133,12 +104,9 @@ def func2(cmd, buttons):
 
 
 if __name__ == "__main__":
-         # main()
     cmd = multiprocessing.Value('i', 0)
     buttons = multiprocessing.Array('i', 9)
     a = multiprocessing.Process(target=func2, args=(cmd, buttons))
     b = multiprocessing.Process(target=func, args=(cmd, buttons))
     a.start()
     b.start()
-    # a.join()
-    # b.join()
