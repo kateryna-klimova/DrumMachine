@@ -157,7 +157,7 @@ def func2(drum_pad_mode):
 
 if __name__ == "__main__":
          # main()
-    drum_pad_mode = Value('i')
+    drum_pad_mode = Value('i', 0)
     a = Process(target=func2, args=(drum_pad_mode,))
     b = Process(target=func, args=(drum_pad_mode,))
     a.start()
