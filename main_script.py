@@ -41,7 +41,7 @@ def connected(client):
 def message(client, feed_id, payload):  # proces the commands from Google Home
      global drum_pad_mode
      if payload == "mode piano":
-        drum_pad_mode = "piano"
+        global drum_pad_mode = "piano"
         print("Mode set to " + drum_pad_mode)
      elif payload == "mode drums":
         drum_pad_mode = "drums"
