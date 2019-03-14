@@ -50,10 +50,10 @@ def callback1(channel):
     # if drum_pad_mode == 'default':
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
-    #     os.system('aplay -D bluealsa ~/Desktop/project/piano/a1.wav')
+    #
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'drums':
-    # os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
+
     #     print "Playing from port 24 in mode %s" % drum_pad_mode
     buttons[0] = 1
 
@@ -62,10 +62,10 @@ def callback2(channel):
     # if drum_pad_mode == 'default':
     #     print "Playing from port 23 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
-    #     os.system('aplay -D bluealsa ~/Desktop/project/piano/b1.wav')
+    #
     #     print "Playing from port 23 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'drums':
-    #     os.system('aplay -D bluealsa ~/Desktop/project/drums/snare.wav')
+
     #     print "Playing from port 23 in mode %s" % drum_pad_mode
     buttons[1] = 1
 
@@ -74,10 +74,10 @@ def callback3(channel):
     # if drum_pad_mode == 'default':
     #     print "Playing from port 18 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'piano':
-    #     os.system('aplay -D bluealsa ~/Desktop/project/piano/c1.wav')
+    #
     #     print "Playing from port 18 in mode %s" % drum_pad_mode
     # elif drum_pad_mode == 'drums':
-    #     os.system('aplay -D bluealsa ~/Desktop/project/drums/hat.wav')
+    #
     #     print "Playing from port 18 in mode %s" % drum_pad_mode
     buttons[2] = 1
 
@@ -101,23 +101,23 @@ def func2(cmd, buttons):
         # print("while")
         if cmd.value == 1:
             if (buttons[0] == 1):
-                print "Playing b1 in mode piano"
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/a1.wav')
                 buttons[0] = 0
             if (buttons[1] == 1):
-                print "Playing b2 in mode piano"
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/b1.wav')
                 buttons[1] = 0
             if (buttons[2] == 1):
-                print "Playing b3 in mode piano"
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/c1.wav')
                 buttons[2] = 0
         elif cmd.value == 2:
             if (buttons[0] == 1):
-                print "Playing b1 in mode drums"
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
                 buttons[0] = 0
             if (buttons[1] == 1):
-                print "Playing b2 in mode drums"
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare.wav')
                 buttons[1] = 0
             if (buttons[2] == 1):
-                print "Playing b3 in mode drums"
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/hat.wav')
                 buttons[2] = 0
         elif cmd.value == 0:
             if (buttons[0] == 1):
