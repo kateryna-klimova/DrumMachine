@@ -103,7 +103,7 @@ def func(drum_pad_mode):
 
 # Function defenitions end
 
-def main(drum_pad_mode):
+def func2(drum_pad_mode):
     global b1
     global b2
     global b3
@@ -157,5 +157,9 @@ def main(drum_pad_mode):
 if __name__ == "__main__":
          # main()
     drum_pad_mode = Value('i', 0)
-    Process(target=main, args=(drum_pad_mode,)).start()
-    Process(target=func, args=(drum_pad_mode,)).start()
+    a = Process(target=func2, args=(drum_pad_mode,))
+    b = Process(target=func, args=(drum_pad_mode,))
+    a.start()
+    b.start()
+    a.join()
+    b.join()
