@@ -37,7 +37,7 @@ ADAFRUIT_IO_KEY = "e2eee5f63ba54e26b3fb8bb70dd4bd09"
 def connected(client):
     client.subscribe('google_commands')
 
-# this gets called every time a message is received
+# this gets called every time a message is received hehbkh
 def message(client, feed_id, payload):  # proces the commands from Google Home
      global drum_pad_mode
      if payload == "mode piano":
