@@ -156,5 +156,9 @@ def main(drum_pad_mode):
 if __name__ == "__main__":
          # main()
     drum_pad_mode = Value('i', 0)
-    Process(target=main, args=(drum_pad_mode,))
-    Process(target=func, args=(drum_pad_mode,))
+    d = Process(target=main, args=(drum_pad_mode,))
+    w = Process(target=func, args=(drum_pad_mode,))
+    d.start()
+    w.start()
+    d.join()
+    w.join()
