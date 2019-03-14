@@ -105,17 +105,17 @@ def func():
 # Function defenitions end
 
 def main():
-    # global b1
-    # global b2
-    # global b3
-    # global b4
-    # global b5
-    # global b6
-    # global b7
-    # global b8
-    # global b9
+    global b1
+    global b2
+    global b3
+    global b4
+    global b5
+    global b6
+    global b7
+    global b8
+    global b9
     # global record_tag
-    # global drum_pad_mode
+    global drum_pad_mode
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
