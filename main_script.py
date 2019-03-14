@@ -39,6 +39,7 @@ def connected(client):
 
 # this gets called every time a message is received hehbkh
 def message(client, feed_id, payload):  # proces the commands from Google Home
+     global drum_pad_mode
      if payload == "mode piano":
         drum_pad_mode = 1
         print("Mode set to piano")
