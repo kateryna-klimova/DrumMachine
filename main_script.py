@@ -29,18 +29,18 @@ def connected(client):
 
 # this gets called every time a message is received hehbkh
 def message(client, feed_id, payload):  # proces the commands from Google Home
-     global cmd
+     # global cmd
      if payload == "mode piano":
-        cmd = 1
+        cmd.value = 1
         print("Mode set to piano")
      elif payload == "mode drums":
-        cmd = 2
+        cmd.value = 2
         print("Mode set to drums")
      elif payload == "record":
-        cmd = 4
+        cmd.value = 4
         print("Recording started")
      elif payload == "stop recording":
-        cmd = 5
+        cmd.value = 5
         print("Recording stopped")
      else:
         print "Message from Google Home: %s" % payload
@@ -99,36 +99,36 @@ def func2(cmd, buttons):
     while True:
         # sleep(0.5)
         # print("while")
-        if cmd == 1:
+        if cmd.value == 1:
             if (buttons[0] == 1):
                 print "Playing b1 in mode piano"
-                b1 = 0
+                buttons[0] = 0
             if (buttons[1] == 1):
                 print "Playing b2 in mode piano"
-                b2 = 0
+                buttons[1] = 0
             if (buttons[2] == 1):
                 print "Playing b3 in mode piano"
-                b3 = 0
-        elif cmd == 2:
+                buttons[2] = 0
+        elif cmd.value == 2:
             if (buttons[0] == 1):
                 print "Playing b1 in mode drums"
-                b1 = 0
+                buttons[0] = 0
             if (buttons[1] == 1):
                 print "Playing b2 in mode drums"
-                b2 = 0
+                buttons[1] = 0
             if (buttons[2] == 1):
                 print "Playing b3 in mode drums"
-                b3 = 0
-        elif cmd == 0:
+                buttons[2] = 0
+        elif cmd.value == 0:
             if (buttons[0] == 1):
                 print "Playing b1 in mode default"
-                b1 = 0
+                buttons[0] = 0
             if (buttons[1] == 1):
                 print "Playing b2 in mode default"
-                b2 = 0
+                buttons[1] = 0
             if (buttons[2] == 1):
                 print "Playing b3 in mode default"
-                b3 = 0
+                buttons[2] = 0
     GPIO.cleanup()
 
 
