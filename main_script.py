@@ -41,10 +41,10 @@ def connected(client):
 def message(client, feed_id, payload):  # proces the commands from Google Home
      if payload == "mode piano":
         drum_pad_mode = 1
-        print("Mode set to 1")
+        print("Mode set to piano")
      elif payload == "mode drums":
         drum_pad_mode = 2
-        print("Mode set to 2")
+        print("Mode set to drums")
      elif payload == "record":
         record_tag = 1
         print("Recording started")
@@ -119,7 +119,8 @@ def main(drum_pad_mode):
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
     while True:
-        # sleep(0.5)
+        sleep(0.5)
+        print(while)
         if drum_pad_mode == 1:
             if (b1 == 1):
                 print "Playing b1 in mode piano"
@@ -156,9 +157,5 @@ def main(drum_pad_mode):
 if __name__ == "__main__":
          # main()
     drum_pad_mode = Value('i', 0)
-    d = Process(target=main, args=(drum_pad_mode,))
-    w = Process(target=func, args=(drum_pad_mode,))
-    d.start()
-    w.start()
-    d.join()
-    w.join()
+    Process(target=main, args=(drum_pad_mode,)).start()
+    Process(target=func, args=(drum_pad_mode,)).start()
