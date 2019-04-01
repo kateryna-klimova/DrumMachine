@@ -35,13 +35,13 @@ def connected(client):
 
 # this gets called every time a message is received hehbkh
 def message(client, feed_id, payload):  # proces the commands from Google Home
-     if payload == "mode piano":
+     if payload == "mode piano" or payload == "mold piano":
         cmd.value = 1
         print("Mode set to piano")
-     elif payload == "mode drums":
+     elif payload == "mode drums" or payload == "mold drums":
         cmd.value = 2
         print("Mode set to drums")
-     elif payload == "mode beat":
+     elif payload == "mode beat" or payload == "mold beat":
        cmd.value = 3
        print("Mode set to beat")
      elif payload == "record":
@@ -161,31 +161,31 @@ def func2(cmd, buttons):
 
         elif cmd.value == 3:
             if (buttons[0] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/1.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/1.wav')
                 buttons[0] = 0
             if (buttons[1] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/2.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/2.wav')
                 buttons[1] = 0
             if (buttons[2] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/3.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/3.wav')
                 buttons[2] = 0
             if (buttons[3] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/4.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/4.wav')
                 buttons[3] = 0
             if (buttons[4] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/5.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/5.wav')
                 buttons[4] = 0
             if (buttons[5] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/6.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/6.wav')
                 buttons[5] = 0
             if (buttons[6] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/7.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/7.wav')
                 buttons[6] = 0
             if (buttons[7] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/8.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/8.wav')
                 buttons[7] = 0
             if (buttons[8] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/synth/1.aif')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/1.wav')
                 buttons[8] = 0
 
         elif cmd.value == 0: #default
