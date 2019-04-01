@@ -150,7 +150,7 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/snare_edge.wav')
                 buttons[5] = 0
             if (buttons[6] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare-roll.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/kick2.wav')
                 buttons[6] = 0
             if (buttons[7] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/tom2.wav')
@@ -208,7 +208,7 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/snare_edge.wav')
                 buttons[5] = 0
             if (buttons[6] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare-roll.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/kick2.wav')
                 buttons[6] = 0
             if (buttons[7] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/piano/g1.wav')
