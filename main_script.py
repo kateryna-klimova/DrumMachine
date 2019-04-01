@@ -41,7 +41,7 @@ def message(client, feed_id, payload):  # proces the commands from Google Home
      elif payload == "mode drums":
         cmd.value = 2
         print("Mode set to drums")
-    elif payload == "mode beat":
+     elif payload == "mode beat":
        cmd.value = 3
        print("Mode set to beat")
      elif payload == "record":
