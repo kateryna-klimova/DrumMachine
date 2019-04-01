@@ -17,6 +17,13 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 ADAFRUIT_IO_USERNAME = "katerynaklimova"
 ADAFRUIT_IO_KEY = "e2eee5f63ba54e26b3fb8bb70dd4bd09"
 
@@ -47,13 +54,29 @@ def message(client, feed_id, payload):  # proces the commands from Google Home
 def callback1(channel):
     buttons[0] = 1
 
-
 def callback2(channel):
     buttons[1] = 1
 
-
 def callback3(channel):
     buttons[2] = 1
+
+def callback4(channel):
+    buttons[3] = 1
+
+def callback5(channel):
+    buttons[4] = 1
+
+def callback6(channel):
+    buttons[5] = 1
+
+def callback7(channel):
+    buttons[6] = 1
+
+def callback8(channel):
+    buttons[7] = 1
+
+def callback9(channel):
+    buttons[8] = 1
 
 def func(cmd, buttons):
     client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
@@ -69,6 +92,12 @@ def func2(cmd, buttons):
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
+    GPIO.add_event_detect(17, GPIO.BOTH, callback=callback4, bouncetime=500)
+    GPIO.add_event_detect(27, GPIO.BOTH, callback=callback5, bouncetime=500)
+    GPIO.add_event_detect(22, GPIO.BOTH, callback=callback6, bouncetime=500)
+    GPIO.add_event_detect(5, GPIO.BOTH, callback=callback7, bouncetime=500)
+    GPIO.add_event_detect(6, GPIO.BOTH, callback=callback8, bouncetime=500)
+    GPIO.add_event_detect(16, GPIO.BOTH, callback=callback9, bouncetime=500)
     while True:
         if cmd.value == 1:
             if (buttons[0] == 1):
@@ -90,6 +119,25 @@ def func2(cmd, buttons):
             if (buttons[2] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/hat.wav')
                 buttons[2] = 0
+            if (buttons[3] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/sharp_snare.wav')
+                buttons[3] = 0
+            if (buttons[4] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare_double.wav')
+                buttons[4] = 0
+            if (buttons[5] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare_edge.wav')
+                buttons[5] = 0
+            if (buttons[6] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare-roll.wav')
+                buttons[6] = 0
+            if (buttons[7] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/tom2.wav')
+                buttons[7] = 0
+            if (buttons[8] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/kick.wav')
+                buttons[8] = 0
+
         elif cmd.value == 0:
             if (buttons[0] == 1):
                 print "Playing b1 in mode default"
