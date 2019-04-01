@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Main Script: Google Home and ISRs"""
+"""Main Script"""
 # Working script
 # Imports
 from Adafruit_IO import MQTTClient
@@ -190,7 +190,7 @@ def func2(cmd, buttons):
 
         elif cmd.value == 0: #default
             if (buttons[0] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/8.wav')
                 buttons[0] = 0
             if (buttons[1] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/snare.wav')
@@ -202,7 +202,7 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/piano/e1.wav')
                 buttons[3] = 0
             if (buttons[4] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare_double.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/4.wav')
                 buttons[4] = 0
             if (buttons[5] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/snare_edge.wav')
@@ -214,7 +214,7 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/piano/g1.wav')
                 buttons[7] = 0
             if (buttons[8] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/kick.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/2.wav')
                 buttons[8] = 0
     GPIO.cleanup()
 
