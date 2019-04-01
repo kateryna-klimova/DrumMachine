@@ -92,15 +92,15 @@ def func(cmd, buttons):
 # Function defenitions end
 
 def func2(cmd, buttons):
-    GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=500)
-    GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=500)
-    GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=500)
-    GPIO.add_event_detect(17, GPIO.BOTH, callback=callback4, bouncetime=500)
-    GPIO.add_event_detect(27, GPIO.BOTH, callback=callback5, bouncetime=500)
-    GPIO.add_event_detect(22, GPIO.BOTH, callback=callback6, bouncetime=500)
-    GPIO.add_event_detect(5, GPIO.BOTH, callback=callback7, bouncetime=500)
-    GPIO.add_event_detect(6, GPIO.BOTH, callback=callback8, bouncetime=500)
-    GPIO.add_event_detect(16, GPIO.BOTH, callback=callback9, bouncetime=500)
+    GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=50)
+    GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=50)
+    GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=50)
+    GPIO.add_event_detect(17, GPIO.BOTH, callback=callback4, bouncetime=50)
+    GPIO.add_event_detect(27, GPIO.BOTH, callback=callback5, bouncetime=50)
+    GPIO.add_event_detect(22, GPIO.BOTH, callback=callback6, bouncetime=50)
+    GPIO.add_event_detect(5, GPIO.BOTH, callback=callback7, bouncetime=50)
+    GPIO.add_event_detect(6, GPIO.BOTH, callback=callback8, bouncetime=50)
+    GPIO.add_event_detect(16, GPIO.BOTH, callback=callback9, bouncetime=50)
     while True:
         if cmd.value == 1:
             if (buttons[0] == 1):
