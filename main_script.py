@@ -185,7 +185,7 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/synth/8.wav')
                 buttons[7] = 0
             if (buttons[8] == 1):
-                s.system('aplay -D bluealsa ~/Desktop/project/synth/3.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/3.wav')
                 buttons[8] = 0
 
         elif cmd.value == 0: #default
