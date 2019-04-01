@@ -104,31 +104,31 @@ def func2(cmd, buttons):
     while True:
         if cmd.value == 1:
             if (buttons[0] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/a1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/1.wav')
                 buttons[0] = 0
             if (buttons[1] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/b1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/2.wav')
                 buttons[1] = 0
             if (buttons[2] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/c1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/3.wav')
                 buttons[2] = 0
             if (buttons[3] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/d1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/4.wav')
                 buttons[3] = 0
             if (buttons[4] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/e1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/5.wav')
                 buttons[4] = 0
             if (buttons[5] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/g1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/6.wav')
                 buttons[5] = 0
             if (buttons[6] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/f1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/7.wav')
                 buttons[6] = 0
             if (buttons[7] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/a1s.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/8.wav')
                 buttons[7] = 0
             if (buttons[8] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/d1s.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/9.wav')
                 buttons[8] = 0
         elif cmd.value == 2:
             if (buttons[0] == 1):
