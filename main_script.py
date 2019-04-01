@@ -110,22 +110,22 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/piano/c1.wav')
                 buttons[2] = 0
             if (buttons[3] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/d1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/d1.wav')
                 buttons[3] = 0
             if (buttons[4] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/e1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/e1.wav')
                 buttons[4] = 0
             if (buttons[5] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/g1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/g1.wav')
                 buttons[5] = 0
             if (buttons[6] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/f1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/f1.wav')
                 buttons[6] = 0
             if (buttons[7] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/a1swav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/a1swav')
                 buttons[7] = 0
             if (buttons[8] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/drums/d1s.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/d1s.wav')
                 buttons[8] = 0
         elif cmd.value == 2:
             if (buttons[0] == 1):
