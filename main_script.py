@@ -41,6 +41,9 @@ def message(client, feed_id, payload):  # proces the commands from Google Home
      elif payload == "mode drums":
         cmd.value = 2
         print("Mode set to drums")
+    elif payload == "mode beat":
+       cmd.value = 3
+       print("Mode set to beat")
      elif payload == "record":
         cmd.value = 4
         print("Recording started")
@@ -122,7 +125,7 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/piano/f1.wav')
                 buttons[6] = 0
             if (buttons[7] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/a1swav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/a1s.wav')
                 buttons[7] = 0
             if (buttons[8] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/piano/d1s.wav')
@@ -156,16 +159,63 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/kick.wav')
                 buttons[8] = 0
 
-        elif cmd.value == 0:
+        elif cmd.value == 3:
             if (buttons[0] == 1):
-                print "Playing b1 in mode default"
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/1.aif')
                 buttons[0] = 0
             if (buttons[1] == 1):
-                print "Playing b2 in mode default"
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/2.aif')
                 buttons[1] = 0
             if (buttons[2] == 1):
-                print "Playing b3 in mode default"
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/3.aif')
                 buttons[2] = 0
+            if (buttons[3] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/4.aif')
+                buttons[3] = 0
+            if (buttons[4] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/5.aif')
+                buttons[4] = 0
+            if (buttons[5] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/6.aif')
+                buttons[5] = 0
+            if (buttons[6] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/7.aif')
+                buttons[6] = 0
+            if (buttons[7] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/8.aif')
+                buttons[7] = 0
+            if (buttons[8] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/synth/1.aif')
+                buttons[8] = 0
+
+        elif cmd.value == 0: #default
+            if (buttons[0] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/tom.wav')
+                buttons[0] = 0
+            if (buttons[1] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare.wav')
+                buttons[1] = 0
+            if (buttons[2] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/a1.wav')
+                buttons[2] = 0
+            if (buttons[3] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/e1.wav')
+                buttons[3] = 0
+            if (buttons[4] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare_double.wav')
+                buttons[4] = 0
+            if (buttons[5] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare_edge.wav')
+                buttons[5] = 0
+            if (buttons[6] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/snare-roll.wav')
+                buttons[6] = 0
+            if (buttons[7] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/g1.wav')
+                buttons[7] = 0
+            if (buttons[8] == 1):
+                os.system('aplay -D bluealsa ~/Desktop/project/drums/kick.wav')
+                buttons[8] = 0
     GPIO.cleanup()
 
 
