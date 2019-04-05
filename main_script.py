@@ -17,8 +17,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -95,8 +95,8 @@ def func2(cmd, buttons):
     GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=50)
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=50)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=50)
-    GPIO.add_event_detect(17, GPIO.BOTH, callback=callback4, bouncetime=50)
-    GPIO.add_event_detect(27, GPIO.BOTH, callback=callback5, bouncetime=50)
+    GPIO.add_event_detect(26, GPIO.BOTH, callback=callback4, bouncetime=50)
+    GPIO.add_event_detect(25, GPIO.BOTH, callback=callback5, bouncetime=50)
     GPIO.add_event_detect(22, GPIO.BOTH, callback=callback6, bouncetime=50)
     GPIO.add_event_detect(5, GPIO.BOTH, callback=callback7, bouncetime=50)
     GPIO.add_event_detect(6, GPIO.BOTH, callback=callback8, bouncetime=50)
@@ -196,10 +196,10 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/snare.wav')
                 buttons[1] = 0
             if (buttons[2] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/a1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/1.wav')
                 buttons[2] = 0
             if (buttons[3] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/e1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/7.wav')
                 buttons[3] = 0
             if (buttons[4] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/synth/4.wav')
@@ -211,7 +211,7 @@ def func2(cmd, buttons):
                 os.system('aplay -D bluealsa ~/Desktop/project/drums/kick2.wav')
                 buttons[6] = 0
             if (buttons[7] == 1):
-                os.system('aplay -D bluealsa ~/Desktop/project/piano/g1.wav')
+                os.system('aplay -D bluealsa ~/Desktop/project/piano/9.wav')
                 buttons[7] = 0
             if (buttons[8] == 1):
                 os.system('aplay -D bluealsa ~/Desktop/project/synth/2.wav')
