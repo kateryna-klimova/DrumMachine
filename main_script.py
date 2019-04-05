@@ -19,7 +19,7 @@ GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -92,12 +92,12 @@ def func(cmd, buttons):
 # Function defenitions end
 
 def func2(cmd, buttons):
-    GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=50)
+    GPIO.add_event_detect(24, GPIO.BOTH, callback=callback1, bouncetime=50) 
     GPIO.add_event_detect(18, GPIO.BOTH, callback=callback2, bouncetime=50)
     GPIO.add_event_detect(23, GPIO.BOTH, callback=callback3, bouncetime=50)
     GPIO.add_event_detect(26, GPIO.BOTH, callback=callback4, bouncetime=50)
     GPIO.add_event_detect(25, GPIO.BOTH, callback=callback5, bouncetime=50)
-    GPIO.add_event_detect(22, GPIO.BOTH, callback=callback6, bouncetime=50)
+    GPIO.add_event_detect(17, GPIO.BOTH, callback=callback6, bouncetime=50)
     GPIO.add_event_detect(5, GPIO.BOTH, callback=callback7, bouncetime=50)
     GPIO.add_event_detect(6, GPIO.BOTH, callback=callback8, bouncetime=50)
     GPIO.add_event_detect(16, GPIO.BOTH, callback=callback9, bouncetime=50)
